@@ -95,7 +95,7 @@ var map = new google.maps.Map(d3.select("#test").node(), {
     while (sensor[i].Date!=date){
       i++;
     }
-    
+date2=sensor[i].Date
 for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
   
@@ -155,6 +155,7 @@ for(k in data){
     while (sensor[i].Date!=date){
       i++;
     }
+date2=sensor[i].Date
 for(k in data){
   marker[k].setMap(null)
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
