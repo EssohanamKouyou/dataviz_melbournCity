@@ -91,7 +91,7 @@ var map = new google.maps.Map(d3.select("#test").node(), {
             d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
       var date2=1;
-	  while(sensor[date2].Date==date){date2+=1}
+	  while(sensor[date2].Date!=date){date2+=1}
     
 for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
@@ -148,7 +148,7 @@ for(k in data){
                       d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
          var date2=1;
-    while(sensor[date2].Date==date){date2+=1}
+    while(sensor[date2].Date!=date){date2+=1}
 for(k in data){
   marker[k].setMap(null)
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
