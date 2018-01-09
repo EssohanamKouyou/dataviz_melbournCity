@@ -92,7 +92,7 @@ var map = new google.maps.Map(d3.select("#test").node(), {
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
       var date2=0;
     i=1
-    while (sensor[i].Date==date){
+    while (sensor[i].Date!=date){
       i++;
     }
     
@@ -152,7 +152,7 @@ for(k in data){
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
          var date2=0;
     i=1
-    while (sensor[i].Date==date){
+    while (sensor[i].Date!=date){
       i++;
     }
 for(k in data){
