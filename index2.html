@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="pickmeup.css">
+    <script type="text/javascript" src="pickmeup.js"></script>
     <style>
       div {
         position: center;
@@ -66,11 +68,8 @@
     
   <div class="row justify-content-md-center">
      <div id="boutons_part">
-       <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control"  value="12-02-2012">
-          <div class="input-group-addon">
-              <span class="glyphicon glyphicon-th"></span>
-          </div>
+       <div class="input-group">
+          <input type="text" class="form-control date" data-pmu-format="Y-m-d">
         </div>
         
      </div>
