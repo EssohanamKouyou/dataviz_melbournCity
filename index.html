@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
@@ -90,8 +91,9 @@ var map = new google.maps.Map(d3.select("#test").node(), {
             d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
       var date2=0;
-    for (i=1;i<sensor.length;i++){
-      if (sensor[i].Date==date){date2=i}
+    i=1
+    while (sensor[i].Date==date){
+      i++;
     }
     
 for(k in data){
@@ -149,8 +151,9 @@ for(k in data){
                       d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
          var date2=0;
-    for (i=1;i<sensor.length;i++){
-      if (sensor[i].Date==date){date2=i}
+    i=1
+    while (sensor[i].Date==date){
+      i++;
     }
 for(k in data){
   marker[k].setMap(null)
