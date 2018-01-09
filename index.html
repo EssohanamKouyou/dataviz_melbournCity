@@ -91,14 +91,14 @@ var map = new google.maps.Map(d3.select("#test").node(), {
             d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
       var date2=0;
-    i=1
+    i=1;
     while (sensor[i].Date!=date){
       i++;
-	    console.log(i)
+	    console.log(i);
     }
 	  console.log(i);
 date2=sensor[i].Date;
-	  console.log(date2)
+	  console.log(date2);
 for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
   
