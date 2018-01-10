@@ -32,13 +32,13 @@ html, body {
   
 #map {
   width: 960px;
-  height: 25px;
-  margin: 0 auto;
+  height: 75px;
+  margin: 0px auto;
   padding: 0;
-}
+}  
  
 #heure {
-  width: 96px0;
+  width: 960px;
   height: 75px;
   margin: 0px auto;
   padding: 0;
@@ -82,6 +82,7 @@ html, body {
   
   #entete_part {
       width: 100%;
+	  height:10px;
       margin: 0px;
       padding: 10px;
       text-align: center;
@@ -99,14 +100,14 @@ html, body {
 	</div>
 
 <div id="coco">
-  <div id=renseignements>ggfhv</div>
-
+  <div id=renseignements></div>
 <select id="map"></select>
 <div id="test"></div>
 <div id="heure"></div>
-<div id="affluence"></div>
-<div id="container"><div id="barchart30"></div><div id="barchart10"></div></div>
 <div id="stat"></div>
+<div id="container"><div id="barchart30"></div><div id="barchart10"></div></div>
+<div id="affluence"></div>
+
 </div>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyAnjOL5TQq4XNdbwevMcuceMcOCJXggBdY&language=fr"></script>
 <script src="//d3js.org/d3.v4.min.js"></script>
@@ -646,7 +647,7 @@ bar.selectAll("rect")
   
   
   
-  d3.select("#renseignements").append("text").attr("text",curd+", il est "+curh)
+  d3.select("#renseignements").text(curd+", il est "+curh)
   
   var format = d3.timeParse("%d/%m/%Y");
 console.log(format("17/01/1986").getDay())
