@@ -11,11 +11,11 @@ html, body {
 }
   
   .bar {
-  fill: steelblue;
+  fill: #B3E9E2;
 }
 
 .bar:hover {
-  fill: brown;
+  fill: #32A192;
 }
 
 .axis--x path {
@@ -57,6 +57,12 @@ html, body {
   margin-top: 0px;
   padding: 0;
 }
+  #affluence{
+  width: 960;
+  height: 500;
+  margin-top: 0px;
+  padding: 0;
+}
   
 .stations, .stations svg {
   position: absolute;
@@ -74,21 +80,53 @@ html, body {
   //stroke: black;
   //stroke-width: 1.5px;
 }
-.dataset-button {
-	padding: 6px 0 6px 0;
+  .dataset-button {
+   margin-right:1px;
+	padding:6px 0 6px 0;
 	font:Bold 13px Arial;
-	background:#fafafa;
-	color:#555;
-  border-right: 1px solid fafafa;
-  border-radius: 50%;
-	width:40px;
-  height:40px;
+	background:#627B77;
+	color:#fff;
+	width:4.055%;
+	border-radius:0px;
+	border:none;
 }
+  .dataset-button:hover {
+	padding:6px 0 6px 0;
+	font:Bold 13px Arial;
+	background:#689D96;
+	color:#fff;
+	width:4.055%;
+	border-radius:0px;
+	border:none;
+}
+  
+  #entete_part {
+      width: 100%;
+      height: 25;
+      margin: 0px;
+      padding: 10px;
+      text-align: center;
+    color: white;
+      background-color : #32A192;
+    font-family: "Gill Sans", sans-serif;
+    box-shadow: 1px 1px 12px #555;
+    }
+  
+ div {
+        position: center;
+      }
 
 </style>
+<div id="robert">
+       <div id="entete_part">
+      <h1>Melbourne Pedestrian Activity</h1></div>
+  <div id=renseignements>ggfhv</div>
+</div>
 <select id="map"></select>
 <div id="test"></div>
+<div id="affluence"></div>
 <div id="heure"></div>
+<div id="affluence"></div>
 <div id="container"><div id="barchart30"></div><div id="barchart10"></div></div>
 
 <div id="stat"></div>
@@ -96,6 +134,8 @@ html, body {
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script>
  
+
+
   var bounceTimer;
 var radius = d3.scaleSqrt()
     .domain([0, 2500])
@@ -103,7 +143,7 @@ var radius = d3.scaleSqrt()
     
 var colorScale = d3.scaleLinear()
     .domain([0, 2500])
-    .range(["#c8e1ee", "#317ca4"]);
+    .range(["#B3E9E2", "#32A192"]);
  
 var marker=[];
 var map = new google.maps.Map(d3.select("#test").node(), {
@@ -167,7 +207,7 @@ for(k in data){
      clearTimeout(bounceTimer);
       });
 
-    bindEvent(sensor,data,marker[k],h,k,date2)
+    bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date)
 
       }
    
@@ -231,7 +271,7 @@ for(k in data){
      clearTimeout(bounceTimer);
       });
   
-  bindEvent(sensor,data,marker[k],h,k,date2)
+  bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
   
       }
   });});
@@ -278,10 +318,10 @@ menu.selectAll("option")
 })
 
 
-function bindEvent (sensor,data,marker,h,k,date2) {
+function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
     marker.addListener('click', function() {
-      
-      afficherbarchart30 (sensor,data,h,date2,marker["Sensor Description"])
+      youhou(sensor,data,h,date,sensor_name)
+      //afficherbarchart30 (sensor,data,h,date,sensor_name)
   
     });
 }
@@ -340,7 +380,7 @@ donnees=[]
                 return "rotate(-65)" 
                 })
   .attr("dx", "-.8em")
-            .attr("dy", "4.em");
+            .attr("dy", ".4em");
 
 
 
@@ -450,7 +490,6 @@ donnees1=[]
     i=0
 
         while(sensor[i].Date!=currentday){
-          console.log(sensor[i].Date)
       i++;
     }
     for(j=i;j<i+24;j++){
@@ -501,9 +540,138 @@ donnees1=[]
       .attr("height", function(d) { return height - y(d.value); });
   }
   
+  function youhou(sensor,data,h,currentday,sensor_name){
+    
+    var margin = {top: (parseInt(d3.select('#affluence').style('width'), 10)/10), right: (parseInt(d3.select('#affluence').style('width'), 10)/20), bottom: (parseInt(d3.select('#affluence').style('width'), 10)/5), left: (parseInt(d3.select('#affluence').style('width'), 10)/20)},
+    width = parseInt(d3.select('body').style('width'), 10) - margin.left - margin.right,
+    height = parseInt(d3.select('body').style('height'), 10) - margin.top - margin.bottom;
+
+var x0 = d3.scaleBand()
+    .rangeRound([0, width])
+.padding(0.1);
+
+var x1 = d3.scaleBand();
+
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+var colorRange = d3.scaleOrdinal(d3.schemeCategory10);
+var color = d3.scaleOrdinal()
+    .range(colorRange.range());
+
+var xAxis = d3.axisBottom(x0);
+
+var yAxis = d3.axisLeft(y)
+
+var divTooltip = d3.select("h").append("div").attr("class", "toolTip");
+
+var svg = d3.select("#affluence").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+donnees=[]
+donnees1=[]
+
+i=0
+
+        while(sensor[i].Date!=currentday){
+      i++;
+    }
+    for(j=i;j<i+24;j++){
+      if(Number.isInteger(+sensor[j][sensor_name])){ 
+    donnees1.push(+sensor[j][sensor_name])}
+    }
+console.log("Salut1")
+    console.log(donnees)
+
+    for(i=0;i<sensor.length;i++){
+
+      f=+sensor[i][sensor_name]
+
+      if(Number.isInteger(f)){
+        donnees.push({key:sensor[i].Hour,value:f})
+    }
+    
+    }
+console.log("Salut")
+    console.log(donnees)
+    
+    var averages = d3.nest()
+  .key(function(d) {
+    return d.key; 
+  })
+  .rollup(function(d){
+    return d3.mean(d, function(g) { 
+      return g.value;
+    });
+   })
+   .entries(donnees);
+    
+   for(i=0;i<averages.length;i++){
+    averages[i].value2=donnees1[i]
+   }
+     
+    //console.log(averages)
+    
+    var options = d3.keys(averages[0]).filter(function(key) { return key !== "key"; });
+
+averages.forEach(function(d) {
+    d.valores = options.map(function(name) { return {name: name, value: +d[name]}; });
+});
+
+   
+x0.domain(averages.map(function(d) { return d.key; }));
+x1.domain(options).rangeRound([0, x0.bandwidth()]).padding(0);
+y.domain([0, d3.max(averages, function(d) { return d3.max(d.valores, function(d) { return d.value; }); })]);
+      
+      svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Satisfaction %");
+
+var bar = svg.selectAll(".bar")
+    .data(averages)
+    .enter().append("g")
+    .attr("class", "rect")
+    .attr("transform", function(d) { return "translate(" + x0(d.key) + ",0)"; });
+
+bar.selectAll("rect")
+    .data(function(d) { return d.valores; })
+    .enter().append("rect")
+    .attr("width", x1.bandwidth())
+    .attr("x", function(d) { return x1(d.name); })
+    .attr("y", function(d) { return y(d.value); })
+    .attr("value", function(d){return d.name;})
+    .attr("height", function(d) { return + height - y(d.value); })
+    .style("fill", function(d) { return color(d.name); });
+
+
+    
+    
+    
+    
+    
+  }
   
+  
+  
+  
+  d3.select("#renseignements").append("text").attr("text",curd+", il est "+curh)
   
   var format = d3.timeParse("%d/%m/%Y");
 console.log(format("17/01/1986").getDay())
   
 </script>
+
