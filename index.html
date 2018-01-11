@@ -796,8 +796,7 @@ bar.selectAll("rect")
 		 }*/
 		//console.log(curd);
 		 //console.log(rob[i].date)
-		 while(format(curd)!==format(rob[i].date)){
-			 console.log(rob[i].links);
+		 while(format(curd).getDay()!==format(rob[i].date).getDay() || format(curd).getMonth()!==format(rob[i].date).getMonth() || format(curd).getYear()!==format(rob[i].date).getYear()){
 			 i++;
 		 };
 	d3.select("#meteo").append("svg")
