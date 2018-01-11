@@ -791,13 +791,13 @@ bar.selectAll("rect")
                           .attr("xlink:href", "http://icons.wxug.com/i/c/v4/partlycloudy.svg")*/
 	 
 	 
-	 d3.csv("data_meteo.csv", function(data) {
+	 d3.csv("data_meteo.csv", function(rob) {
 		i=1;
-		 console.log(data[i])
-		 while(format(curd).getTime!==data[i].date.getTime){i++};
+		 console.log(rob[i])
+		 while(format(curd).getTime!==rob[i].date.getTime){i++};
 	d3.select("#meteo").append("svg")
 		 .append("image")
-                          .attr("xlink:href", data[i].links);
+                          .attr("xlink:href", rob[i].links);
 	 
 		 
   });
