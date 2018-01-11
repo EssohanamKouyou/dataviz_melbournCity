@@ -29,7 +29,7 @@ html, body {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	}
-	#meteo{width:320px;margin 0px auto;text-align:center;float:left;}
+	#meteo{width:320px;height:75px;margin 0px auto;text-align:center;float:left;}
 	#heureact{width:320px;margin 0px;text-align:center;float:left;font:Bold 17px Arial;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -110,7 +110,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 </style>
 
        <div id="entete_part">
-	       <h2>Melbourne Pedestrian Acctivity</h2>
+	       <h2>Melbourne Pedestrian Activity</h2>
 </div>
 
 <div id="coco">
@@ -666,8 +666,7 @@ bar.selectAll("rect")
 	 d3.select("#heureact").text(curh+"h")
    
 	 d3.select("#meteo").append("svg")
-                                     .attr("width", 100)
-                                     .attr("height", 100).append("image")
+                                     .append("image")
                           .attr("xlink:href", "http://icons.wxug.com/i/c/v4/partlycloudy.svg")
 	 
 	 
