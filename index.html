@@ -197,6 +197,7 @@ for(k in data){
       }
       
   function test2(h,date){
+	  Boulbi(date,h)
 d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
          var date2=0;
@@ -645,14 +646,10 @@ bar.selectAll("rect")
     
   }
   
-  d3.select("#renseignements").text(curd+" jours "+curh)
-  d3.select("#renseignements").text("Coucou")
-	
-  function Boulbi(){
-	  d3.select("#coucou").remove()
-  d3.select("#renseignements").text("Coucou").attr("id","coucou")
+  function Boulbi(curd,curh){
+	    d3.select("#renseignements").text(curd+" jours "+curh)
   }
-	//Boulbi()
+	Boulbi(curd,curh)
 	
   var format = d3.timeParse("%d/%m/%Y");
 console.log(format("17/01/1986").getDay())
