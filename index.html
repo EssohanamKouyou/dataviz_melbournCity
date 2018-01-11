@@ -388,7 +388,7 @@ donnees=[]
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
-	.on("mouseover",function(d,i){d3.select(this).text(d.value)})
+	.on("mouseover",function(d,i){d3.select(this).append("text").text(d.value)})
   }
   
   
