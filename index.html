@@ -127,6 +127,8 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script>
  
+var jours=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
+var mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 var format = d3.timeParse("%d/%m/%Y");
 
   var bounceTimer;
@@ -660,7 +662,7 @@ bar.selectAll("rect")
   }
   
   function Boulbi(curd,curh){
-	    d3.select("#date").text(format(curd).getDay()+" "+format(curd).getMonth()+" "+format(curd).getYear())
+	    d3.select("#date").text(jours[format(curd).getDay()]+" "+mois[format(curd).getMonth()]+" "+format(curd).getYear())
 	 d3.select("#heureact").text(curh+"h")
 	 d3.select("#meteo").text("Pas mal")
   }
