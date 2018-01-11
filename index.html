@@ -793,7 +793,8 @@ bar.selectAll("rect")
 	 
 	 d3.csv("data_meteo.csv", function(rob) {
 		i=0;
-		 console.log(rob[i].date)
+		 console.log(format(curd).getTime)
+		console.log(format(rob[i].date).getTime)
 		 while(format(curd).getTime!=format(rob[i].date).getTime){i++};
 	d3.select("#meteo").append("svg")
 		 .append("image")
