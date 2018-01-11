@@ -665,21 +665,19 @@ bar.selectAll("rect")
 	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
 	 d3.select("#heureact").text(curh+"h")
    
-	 d3.select("#meteo").append("svg")
+	 /*d3.select("#meteo").append("svg")
                                      .append("image")
-                          .attr("xlink:href", "icons.wxug.com/i/c/v4/partlycloudy.svg")
+                          .attr("xlink:href", "icons.wxug.com/i/c/v4/partlycloudy.svg")*/
 	 
 	 
-	 /*d3.csv("data_meteo.csv", function(data) {
+	 d3.csv("data_meteo.csv", function(data) {
 		i=0;
 		 while(format(curd).getTime!==data[i].date.getTime){i++};
 	d3.select("#meteo").append("svg")
-                                     .attr("width", 75)
-                                     .attr("height", 75)
 		 .append("image")
-                          .attr("xlink:href", "https://avatars0.githubusercontent.com/u/950850?s=52&v=4")
+                          .attr("xlink:href", "http://"+data[i].links)
 		 
-  });*/
+  });
  }
 	Boulbi(curd,curh)
 	
