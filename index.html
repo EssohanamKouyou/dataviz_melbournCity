@@ -202,8 +202,9 @@ for(k in data){
       });
 
 	
-	essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
     bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
+	
+//essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)	
 
       }
    
@@ -270,7 +271,7 @@ for(k in data){
       });
   
   bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
-  essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)
+  //essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)
       }
   });});
   }
@@ -324,14 +325,14 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
   
     });
 }
-  function essai (sensor,data,marker,h,k,date,sensor_name,date2) {
+  /*function essai (sensor,data,marker,h,k,date,sensor_name,date2) {
     marker.addListener('mouseover', function() {
  	marker.setLabel({
          text: sensor[h+date2][sensor_name].toString(),
          color: "black",
          fontWeight: "bold",
          fontSize: "11px"
-       })
+       })*/
   
   function afficherbarchart10 (sensor,data,h,currentday){
   
