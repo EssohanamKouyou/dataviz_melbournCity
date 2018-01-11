@@ -110,7 +110,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 </style>
 
        <div id="entete_part">
-	       <h2>Melbourne Pedestriann Activity</h2>
+	       <h2>Melbourne Pedestrian Activity</h2>
 </div>
 
 <div id="coco">
@@ -665,18 +665,20 @@ bar.selectAll("rect")
 	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
 	 d3.select("#heureact").text(curh+"h")
    
-	 d3.csv("data_meteo.csv", function(data) {
-	  	d3.select("#meteo").append('svg:image').attr(function(){
-		 i=0;
-	 	while(format(curd).getTime!==data[i].date.getTime){i++};
-return {
-  'xlink:href': "http://icons.wxug.com/i/c/v4/partlycloudy.svg",  // can also add svg file here
-  x: 0,
-  y: 0,
-  width: 128,
-  height: 128
-}});
-	 })
+	 //d3.csv("data_meteo.csv", function(data) {
+	  	d3.select("#meteo").append("svg:image").attr("xlink:href", "http://icons.wxug.com/i/c/v4/partlycloudy.svg")
+      .attr("width", 150)
+      .attr("height", 150;
+		// i=0;
+	 	//while(format(curd).getTime!==data[i].date.getTime){i++};
+//return {
+  //'xlink:href': "http://icons.wxug.com/i/c/v4/partlycloudy.svg",  // can also add svg file here
+ // x: 0,
+//  y: 0,
+//  width: 128,
+//  height: 128
+//}});
+	// })
   }
 
 	Boulbi(curd,curh)
