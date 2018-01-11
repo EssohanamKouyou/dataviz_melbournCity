@@ -120,7 +120,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script>
  
-var jours=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
+var jours=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"]
 var mois=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 var format = d3.timeParse("%d/%m/%Y");
 
@@ -493,7 +493,7 @@ donnees=[]
   }
 	
   
-  function statjour(sensor,data){
+/*  function statjour(sensor,data){
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
@@ -557,7 +557,7 @@ donnees=[]
   
 	
 	
-	
+	*/
 	
   function afficherbarchart30 (sensor,data,h,currentday,sensor_name){
     
