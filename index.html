@@ -202,9 +202,7 @@ for(k in data){
       });
 
 	
-    bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
-	
-essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)	
+    bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])	
 
       }
    
@@ -271,7 +269,7 @@ for(k in data){
       });
   
   bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
-  essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)
+
       }
   });});
   }
@@ -325,14 +323,7 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
   
     });
 }
-  function essai (sensor,data,marker,h,k,date,sensor_name,date2) {
-    marker.addListener("mouseover", function() {
- 	marker.set("text, {
-         text: sensor[h+date2][sensor_name].toString(),
-         color: "black",
-         fontWeight: "bold",
-         fontSize: "11px"
-       })
+
   
   function afficherbarchart10 (sensor,data,h,currentday){
   
