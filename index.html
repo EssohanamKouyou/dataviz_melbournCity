@@ -110,7 +110,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 </style>
 
        <div id="entete_part">
-	       <h2>Melbourne Pedestrian Activity</h2>
+	       <h2>Melbourne Pedestriann Activity</h2>
 </div>
 
 <div id="coco">
@@ -202,7 +202,7 @@ for(k in data){
      clearTimeout(bounceTimer);
       });
 
-    bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
+    bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date)
 
       }
    
@@ -786,11 +786,11 @@ bar.selectAll("rect")
 	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
 	 d3.select("#heureact").text(curh+"h")
    
-	 d3.select("#meteo").append("svg")
+	 /*d3.select("#meteo").append("svg")
                                      .append("image")
-                          .attr("xlink:href", "http://icons.wxug.com/i/c/v4/partlycloudy.svg")
+                          .attr("xlink:href", "icons.wxug.com/i/c/v4/partlycloudy.svg")*/
 	 
-	 /*
+	 
 	 d3.csv("data_meteo.csv", function(data) {
 		i=0;
 		 while(format(curd).getTime!==data[i].date.getTime){i++};
@@ -798,7 +798,7 @@ bar.selectAll("rect")
 		 .append("image")
                           .attr("xlink:href", "http://icons.wxug.com/i/c/v4/partlycloudy.svg")
 		 
-  });*/
+  });
  }
 	Boulbi(curd,curh)
 	
