@@ -207,7 +207,7 @@ for(k in data){
       }
    
     afficherbarchart10(sensor,data,date)
-	statjour(sensor,data)
+	statjour2(sensor,data,h,date)
     
   });});
       }
@@ -411,6 +411,86 @@ donnees=[]
 	  
   }
   
+	
+	  function statjour2 (sensor,data,h,currentday){
+  
+  var margin = {top: 20, right: 20, bottom: 70, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 230 - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    y = d3.scaleLinear().rangeRound([height, 0]);
+
+var svg = d3.select("#barchart10").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+		.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+
+donnees=[]
+    for(i=0;i<sensor.length;i++){
+      a=0
+      for(j in data){
+        if(Number.isInteger(+sensor[i][data[j]["Sensor Description"]])){
+          f=+sensor[i][data[j]["Sensor Description"]];
+          a=a+f
+        }
+      }
+        donnees.push({key:jours[format(sensor[i].Date).getDay()],value:a})
+    }
+
+    
+    var averages = d3.nest()
+  .key(function(d) {
+    return d.key; 
+  })
+  .rollup(function(d){
+    return d3.mean(d, function(g) { 
+      return g.value;
+    });
+   })
+   .entries(donnees);
+    
+    
+    
+  x.domain(averages.map(function(d) { return d.key; }));
+  y.domain([0, d3.max(averages, function(d) { return d.value; })]);
+
+  svg.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+  .selectAll("text")
+  .attr("transform", function(d) {
+                return "rotate(-65)" 
+                })
+  .attr("dx", "-3.2em")
+            .attr("dy", ".7em");
+	  
+	  svg.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Nombre de personnes captés");
+
+	  
+  svg.selectAll(".bar")
+    .data(averages)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.key); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.value); });
+	
+	  
+  }
+	
   
   function statjour(sensor,data){
 
