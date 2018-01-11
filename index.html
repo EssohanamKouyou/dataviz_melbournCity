@@ -784,23 +784,23 @@ bar.selectAll("rect")
 	 
 	 
 	 d3.csv("tata.csv", function(rob) {
-		i=0;
+		cur=0;
 		// console.log(rob[i].date)
-		 for (var k =0; k < rob.length; k++) {
+		/* for (var k =0; k < rob.length; k++) {
 			 //console.log(k);
 			 if(format(curd).getTime == format(rob[k].date).getTime) {
 				 i++;
 			 } 
-		 }
-		//console.log(format("03/01/2016").getTime()===format("3/1/2016").getTime())
-		/* while(+format(curd)!==+format(rob[i].date)){
+		 }*/
+		console.log(format("03/01/2016").getTime()===format("3/1/2016").getTime())
+		 while(format(curd).getDate !== format(rob[i].date).getDate ){
 			 console.log(format(curd).getTime);
 		          console.log(format(rob[i].date).getTime)
-			 i++;
-		 };*/
+			 cur++;
+		 }
 	d3.select("#meteo").append("svg")
 		 .append("image")
-                 .attr("xlink:href", rob[i].links);
+                 .attr("xlink:href", rob[cur].links);
 	 
 		 
   });
