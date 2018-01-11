@@ -325,7 +325,7 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
   
   function afficherbarchart10 (sensor,data,h,currentday){
   
-  var margin = {top: 20, right: 20, bottom: 70, left: 20},
+  var margin = {top: 20, right: 20, bottom: 70, left: 50},
     width = 960 - margin.left - margin.right,
     height = 230 - margin.top - margin.bottom;
 
@@ -380,7 +380,7 @@ donnees=[]
 	  
 	  svg.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(10, "%"))
+      .call(d3.axisLeft(y))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
