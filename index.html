@@ -786,20 +786,20 @@ bar.selectAll("rect")
 	 d3.csv("tata.csv", function(rob) {
 		i=0;
 		// console.log(rob[i].date)
-		/* for (var k =0; k < rob.length; k++) {
+		 for (var k =0; k < rob.length; k++) {
 			 console.log(k);
 			 if(format(curd).getTime == format(rob[k].date).getTime) {
 				 i++;
 			 }else{
 				break; 
 			 }
-		 }*/
+		 }
 		console.log(format("03/01/2016").getTime()===format("3/1/2016").getTime())
-		 while(+format(curd)!==+format(rob[i].date)){
+		/* while(+format(curd)!==+format(rob[i].date)){
 			 console.log(format(curd).getTime);
 		          console.log(format(rob[i].date).getTime)
 			 i++;
-		 };
+		 };*/
 	d3.select("#meteo").append("svg")
 		 .append("image")
                  .attr("xlink:href", rob[i].links);
