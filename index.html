@@ -238,7 +238,11 @@ for(k in data){
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
           position: latLng,
-	  label:{text: sensor[h+date2][data[k]["Sensor Description"]]}
+	  label:{text: sensor[h+date2][data[k]["Sensor Description"]],
+		 color: "black",
+        fontWeight: "bold",
+        fontSize: "16px"
+      }
         });
         marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
