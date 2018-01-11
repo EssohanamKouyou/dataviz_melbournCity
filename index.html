@@ -326,8 +326,8 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
     });
 }
   function essai (sensor,data,marker,h,k,date,sensor_name,date2) {
-    marker.addListener('mouseover', function() {
- 	marker.setLabel({
+    marker.addListener("mouseover", function() {
+ 	marker.set("text, {
          text: sensor[h+date2][sensor_name].toString(),
          color: "black",
          fontWeight: "bold",
