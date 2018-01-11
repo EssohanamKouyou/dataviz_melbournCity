@@ -773,6 +773,15 @@ bar.selectAll("rect")
     
     
   }
+	
+	function transfoDate(date){
+	p=date.split("/");
+		if(p[0].lenghth==1){p[0]="0"+p[0]}
+		if(p[1].lenghth==1){p[1]="0"+p[1]}
+	return p[0]+"/"+p[1]+"/"+p[2]
+	}
+	
+	
   
  function Boulbi(curd,curh){
 	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
@@ -792,13 +801,10 @@ bar.selectAll("rect")
 				 i++;
 			 } 
 		 }*/
-	
-		 console.log(curd);
-		 console.log(rob[cur].date);
+
+		 console.log(transfoDate(rob[cur].date));
 		
-		 while(format(curd).getDate !== format(rob[cur].date).getDate ){
-			 console.log(format(curd).getDate);
-		          console.log(format(rob[cur].date).getTime)
+		 while(curd !== transfoDate(rob[cur].date)){
 			 cur++;
 		 }
 	d3.select("#meteo").append("svg")
