@@ -792,8 +792,8 @@ bar.selectAll("rect")
 	 
 	 
 	 d3.csv("data_meteo.csv", function(data) {
-		i=0;
-		 while(format(curd).getTime!==data[i]["date"].getTime){i++};
+		i=1;
+		 while(format(curd).getTime!==data[i].date.getTime){i++};
 	d3.select("#meteo").append("svg")
 		 .append("image")
                           .attr("xlink:href", data[i].links);
