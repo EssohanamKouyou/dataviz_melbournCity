@@ -110,7 +110,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 </style>
 
        <div id="entete_part">
-	       <h2>Melbourne Pedestriann Activity</h2>
+	       <h2>Melbourne Pedestrian Activity</h2>
 </div>
 
 <div id="coco">
@@ -171,7 +171,12 @@ for(k in data){
           map: map,
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
-          position: latLng
+          position: latLng,
+	label:{text: sensor[h+date2][data[k]["Sensor Description"]],
+		 color: "black",
+        fontWeight: "bold",
+        fontSize: "16px"
+      }
         });
          marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
