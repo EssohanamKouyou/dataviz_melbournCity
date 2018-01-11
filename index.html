@@ -327,7 +327,7 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
   
   var margin = {top: 20, right: 20, bottom: 70, left: 20},
     width = 960 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 230 - margin.top - margin.bottom;
 
 var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     y = d3.scaleLinear().rangeRound([height, 0]);
@@ -375,8 +375,8 @@ donnees=[]
   .attr("transform", function(d) {
                 return "rotate(-65)" 
                 })
-  .attr("dx", "-2.8em")
-            .attr("dy", ".4em");
+  .attr("dx", "-3.2em")
+            .attr("dy", ".7em");
 
 
 
