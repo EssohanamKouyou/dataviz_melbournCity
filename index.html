@@ -378,7 +378,10 @@ donnees=[]
   .attr("dx", "-3.2em")
             .attr("dy", ".7em");
 
-
+svg.append("text")
+	.attr("y",function(d){return y(d.value)})
+	  .attr("x",function(d){return x(d.key)})
+	  .text(function(d){return d.value;})
 
   svg.selectAll(".bar")
     .data(averages)
@@ -388,7 +391,6 @@ donnees=[]
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
-	.on("mouseover",function(d,i){d3.select(this).append("text").text(d.value)})
   }
   
   
