@@ -378,11 +378,6 @@ donnees=[]
   .attr("dx", "-3.2em")
             .attr("dy", ".7em");
 
-svg.append("text")
-	.attr("y",function(d){return y(d.value)})
-	  .attr("x",function(d){return x(d.key)})
-	  .text(function(d){return d.value;})
-
   svg.selectAll(".bar")
     .data(averages)
     .enter().append("rect")
@@ -391,6 +386,13 @@ svg.append("text")
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
+	  
+	  
+	  svg.append("text")
+	.attr("y",function(d){return y(d.value)})
+	  .attr("x",function(d){return x(d.key)})
+	  .text(function(d){return d.value;});
+	  
   }
   
   
