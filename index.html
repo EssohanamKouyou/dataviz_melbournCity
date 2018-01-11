@@ -317,7 +317,7 @@ menu.selectAll("option")
 
 function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
     marker.addListener('click', function() {
-	    d3.select("#affluence").remove()
+	    d3.select("#affluence").select("svg").remove()
       youhou(sensor,data,h,date,sensor_name)
       //afficherbarchart30 (sensor,data,h,date,sensor_name)
   
