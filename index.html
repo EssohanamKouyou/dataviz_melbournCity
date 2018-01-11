@@ -377,7 +377,28 @@ donnees=[]
                 })
   .attr("dx", "-3.2em")
             .attr("dy", ".7em");
+	  
+	  svg.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Nombre de personnes captés");
 
+	   svg.append("g")
+	  .data(averages)
+	  .append("text").
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+    .append("text")
+      .attr("x", function(d) { return x(d.key); })
+      .attr("y", function(d) { return y(d.value)-20; })
+.text("ta mère").attr("fill","red")
+	  
+	  
   svg.selectAll(".bar")
     .data(averages)
     .enter().append("rect")
