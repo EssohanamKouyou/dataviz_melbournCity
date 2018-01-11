@@ -217,9 +217,11 @@ for(k in data){
 d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
          var date2=0;
-    for (i=1;i<sensor.length;i++){
+	  
+	  while(sensor[date2].Date!=date){date2++}
+    /*for (i=1;i<sensor.length;i++){
       if (sensor[i].Date==date){date2=i}
-    }
+    }*/
 for(k in data){
   marker[k].setMap(null)
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
