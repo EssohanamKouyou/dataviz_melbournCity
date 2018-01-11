@@ -755,7 +755,23 @@ bar.selectAll("rect")
     .style("fill", function(d) { return color(d.name); });
 
 
-    
+    var legend = svg.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+
+  legend.append("rect")
+	.data(function(d) { return d.valores; })
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", "red");
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text("Salut");
     
     
     
