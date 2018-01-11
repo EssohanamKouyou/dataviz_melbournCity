@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 <style>
 
@@ -271,7 +270,7 @@ for(k in data){
       });
   
   bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
-  
+  essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"],date2)
       }
   });});
   }
@@ -317,19 +316,22 @@ menu.selectAll("option")
 })
 
 
-function essai (sensor,data,marker,h,k,date,sensor_name) {
-    marker.addListener('mouseover', function() {
-	marker.setLabel({
-        text: sensor[h+date2][data[k]["Sensor Description"]].toString(),
-        color: "black",
-        fontWeight: "bold",
-        fontSize: "11px"
-      })
+function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
+    marker.addListener('click', function() {
+ 	    d3.select("#affluence").select("svg").remove()
+      youhou(sensor,data,h,date,sensor_name)
       //afficherbarchart30 (sensor,data,h,date,sensor_name)
   
     });
 }
-  
+  function essai (sensor,data,marker,h,k,date,sensor_name,date2) {
+    marker.addListener('mouseover', function() {
+ 	marker.setLabel({
+         text: sensor[h+date2][sensor_name].toString(),
+         color: "black",
+         fontWeight: "bold",
+         fontSize: "11px"
+       })
   
   function afficherbarchart10 (sensor,data,h,currentday){
   
