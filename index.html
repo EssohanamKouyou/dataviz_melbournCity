@@ -778,13 +778,8 @@ bar.selectAll("rect")
 	p=date.split("/");
 		a="";
 		b="";
-		console.log("salut")
-		console.log(p[0].toString().length)
-		console.log(p[0].length)
-		if(p[0].length==2){console.log(a); console.log("inside"); a="0"}
-		console.log(a)
+		if(p[0].length==2){a="0"}
 		if(p[1].length==1){b="0"}
-		console.log( a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2])
 	return a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2]
 	}
 	
@@ -812,6 +807,7 @@ bar.selectAll("rect")
 		 while(curd !== transfoDate(rob[cur].date)){
 			 cur++;
 		 }
+	d3.select("#meteo").append("svg").remove()
 	d3.select("#meteo").append("svg")
 		 .append("image")
                  .attr("xlink:href", rob[cur].links);
