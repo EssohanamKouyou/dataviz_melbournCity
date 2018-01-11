@@ -207,6 +207,7 @@ for(k in data){
       }
    
     afficherbarchart10(sensor,data,date)
+	statjour(sensor,data)
     
   });});
       }
@@ -411,23 +412,22 @@ donnees=[]
   }
   
   
-  /*
-var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
+  function statjour(sensor,data){
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
 var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     y = d3.scaleLinear().rangeRound([height, 0]);
 
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select("#barchart10")
+	.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var format = d3.timeParse("%d/%m/%Y");
  var jours=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
-d3.csv("November_2017.csv", function(sensor) { 
-  d3.csv("Pedestrian_sensor_locations.csv", function(error, data) {
-  if (error) throw error;
+
 donnees=[]
     for(i=0;i<sensor.length;i++){
       a=0
@@ -456,14 +456,14 @@ donnees=[]
   x.domain(averages.map(function(d) { return d.key; }));
   y.domain([0, d3.max(averages, function(d) { return d.value; })]);
 
-  g.append("g")
+  svg.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
 
 
 
-  g.selectAll(".bar")
+  svg.selectAll(".bar")
     .data(averages)
     .enter().append("rect")
       .attr("class", "bar")
@@ -471,8 +471,8 @@ donnees=[]
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
-});}); 
-  */
+ 
+}
   
   function afficherbarchart30 (sensor,data,h,currentday,sensor_name){
     
