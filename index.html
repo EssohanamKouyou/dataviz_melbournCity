@@ -26,7 +26,7 @@ html, body {
 	
 	#date{width:320px;margin 0px;text-align:center;float:left;}
 	#meteo{width:320px;margin 0px auto;text-align:center;}
-	#heure{width:320px;margin 0px;text-align:center;float:right;}
+	#heureact{width:320px;margin 0px;text-align:center;float:right;}
 	
 	
 #markerLayer circle {
@@ -108,7 +108,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 
 <div id="coco">
 	
- <div id=renseignements><div id="date"></div><div id="heure"></div><div id="meteo"></div></div>
+ <div id=renseignements><div id="date"></div><div id="heureact"></div><div id="meteo"></div></div>
 <select id="map"></select>
 <div id="test"></div>
 <div id="heure"></div>
@@ -654,7 +654,7 @@ bar.selectAll("rect")
   
   function Boulbi(curd,curh){
 	    d3.select("#date").text(curd)
-	 d3.select("#heure").text(curh)
+	 d3.select("#heureact").text(curh)
 	 d3.select("#meteo").text("Pas mal")
   }
 	Boulbi(curd,curh)
