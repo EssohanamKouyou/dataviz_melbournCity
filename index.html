@@ -802,7 +802,10 @@ bar.selectAll("rect")
 				break; 
 			 }
 		 }*/
-		 while(format(curd).getTime  !== format(rob[i].date).getTime){i++};
+		 while(format(curd).getTime  !== format(rob[i].date).getTime){
+			 i++
+			 console.log(i);
+		 };
 		 console.log(rob[i]);
 	              d3.select("#meteo").append("svg")
 		        .append("image")
