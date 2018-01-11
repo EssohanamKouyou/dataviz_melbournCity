@@ -103,7 +103,7 @@ background-image:linear-gradient(60deg, #32A192, #84c3ba);
 </style>
 
        <div id="entete_part">
-	       <h2>Melbourne Pedestriaan Activity</h2>
+	       <h2>Melbourne Pedestrian Activity</h2>
 </div>
 
 <div id="coco">
@@ -780,9 +780,9 @@ bar.selectAll("rect")
 		b="";
 		console.log(p)
 		if(p[0].lenghth==2){a.concat("0")}
-		console.log(p[0].lenghth)
+		console.log("salut")
 		if(p[1].lenghth==1){b.concat("0")}
-		console.log( a+p[0]+"/"+b+p[1]+"/"+p[2])
+		console.log( a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2])
 	return a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2]
 	}
 	
@@ -806,8 +806,6 @@ bar.selectAll("rect")
 				 i++;
 			 } 
 		 }*/
-
-		 console.log(typeof(rob[cur].date.toString()));
 		
 		 while(curd !== transfoDate(rob[cur].date)){
 			 cur++;
