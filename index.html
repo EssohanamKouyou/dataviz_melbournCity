@@ -388,9 +388,8 @@ donnees=[]
       .attr("text-anchor", "end")
       .text("Nombre de personnes captés");
 
-	   svg.append("g")
+	   svg.append("text")
 	  .data(averages)
-	  .append("text").
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).ticks(10, "%"))
     .append("text")
