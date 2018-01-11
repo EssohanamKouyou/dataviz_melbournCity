@@ -660,7 +660,7 @@ bar.selectAll("rect")
   }
   
   function Boulbi(curd,curh){
-	    d3.select("#date").text(curd)
+	    d3.select("#date").text(format(curd).getDay()+" "+format(curd).getMonth()+" "+format(curd).getYear())
 	 d3.select("#heureact").text(curh+"h")
 	 d3.select("#meteo").text("Pas mal")
   }
