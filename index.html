@@ -652,7 +652,7 @@ var x1 = d3.scaleBand();
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-var colorRange = d3.scaleOrdinal(d3.schemeCategory10);
+var colorRange = d3.scaleOrdinal(["#32A192","#32A192"]);
 var color = d3.scaleOrdinal()
     .range(colorRange.range());
 
@@ -764,7 +764,7 @@ bar.selectAll("rect")
   
  function Boulbi(curd,curh){
 	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
-	 d3.select("#heureact").text(curh+":00")
+	 d3.select("#heureact").text(curh+"h")
    
 	 /*d3.select("#meteo").append("svg")
                                      .append("image")
