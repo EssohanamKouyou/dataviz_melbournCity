@@ -807,7 +807,7 @@ bar.selectAll("rect")
 		 while(curd !== transfoDate(rob[cur].date)){
 			 cur++;
 		 }
-	d3.select("#meteo").append("svg").remove()
+	d3.select("#meteo").select("svg").remove()
 	d3.select("#meteo").append("svg")
 		 .append("image")
                  .attr("xlink:href", rob[cur].links);
