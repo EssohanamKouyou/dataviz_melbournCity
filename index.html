@@ -144,8 +144,10 @@ var map = new google.maps.Map(d3.select("#test").node(), {
             d3.csv("November_2017.csv", function(sensor) { 
   d3.csv("Pedestrian_sensor_locations.csv", function(data) {
            var date2=0;
-    for (i=1;i<sensor.length;i++){
-      if (sensor[i].Date==date){date2=i}
+	  g=0
+    for (i=0;i<sensor.length;i++){
+      if (sensor[i].Date==date && g==0){date2=i;g=1;}
+	    
     }
     
 for(k in data){
@@ -272,6 +274,7 @@ for(k in data){
 
 curh=10
 curd="01/11/2017"
+Boulbi(curd,curh)
 affichage2(curh,curd)
 
 
@@ -315,6 +318,7 @@ function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
       youhou(sensor,data,h,date,sensor_name)
       //afficherbarchart30 (sensor,data,h,date,sensor_name)
   
+	   
     });
 }
 
@@ -815,7 +819,7 @@ bar.selectAll("rect")
 		 
   });
  }
-	Boulbi(curd,curh)
+	
 	
   var format = d3.timeParse("%d/%m/%Y");
 console.log(format("17/01/1986").getDay())
