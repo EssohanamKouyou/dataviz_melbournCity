@@ -778,11 +778,12 @@ bar.selectAll("rect")
 	p=date.split("/");
 		a="";
 		b="";
+		console.log("salut")
 		console.log(p[0].toString().length)
 		console.log(p[0].length)
-		if(p[0].length==2){a.concat("0")}
-		console.log("salut")
-		if(p[1].length==1){b.concat("0")}
+		if(p[0].length==2){a="0"}
+		console.log(a)
+		if(p[1].length==1){b="0")}
 		console.log( a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2])
 	return a+p[0].substring(1)+"/"+b+p[1]+"/"+p[2]
 	}
