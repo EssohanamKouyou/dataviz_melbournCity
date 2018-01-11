@@ -779,7 +779,9 @@ bar.selectAll("rect")
 		a="";
 		b="";
 		if(p[0].lenghth==1){a="0"}
+		console.log(p[0].lenghth)
 		if(p[1].lenghth==1){a="0"}
+		console.log(p[1].lenghth)
 	return a+p[0]+"/"+b+p[1]+"/"+p[2]
 	}
 	
@@ -804,7 +806,7 @@ bar.selectAll("rect")
 			 } 
 		 }*/
 
-		 console.log(transfoDate(rob[cur].date));
+		 console.log(typeOf(rob[cur].date));
 		
 		 while(curd !== transfoDate(rob[cur].date)){
 			 cur++;
