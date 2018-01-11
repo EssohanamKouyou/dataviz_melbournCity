@@ -35,12 +35,6 @@ html, body {
 	}
 	
 	
-#markerLayer circle {
-  animation: pulse .5s infinite alternate;
-  -webkit-animation: pulse .5s infinite alternate;
-  transform-origin: center;
-  -webkit-transform-origin: center;
-}  
   
 #map {
   width: 960px;
@@ -277,7 +271,7 @@ for(k in data){
 
 
 curh=10
-curd="01/11/2017"
+curd="25/11/2017"
 affichage2(curh,curd)
 
 
@@ -664,8 +658,6 @@ var xAxis = d3.axisBottom(x0);
 
 var yAxis = d3.axisLeft(y)
 
-var divTooltip = d3.select("h").append("div").attr("class", "toolTip");
-
 var svg = d3.select("#affluence").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -783,7 +775,7 @@ bar.selectAll("rect")
   }
   
  function Boulbi(curd,curh){
-	 d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
+	    d3.select("#date").text(jours[format(curd).getDay()]+" "+format(curd).getDate()+" "+mois[format(curd).getMonth()]+" 2017")
 	 d3.select("#heureact").text(curh+":00")
    
 	 /*d3.select("#meteo").append("svg")
@@ -793,7 +785,7 @@ bar.selectAll("rect")
 	 
 	 d3.csv("tata.csv", function(rob) {
 		i=0;
-		 console.log(rob[i].date);
+		 console.log(rob[i].date)
 		/* for (var k =0; k < rob.length; k++) {
 			 console.log(k);
 			 if(format(curd).getTime == format(rob[k].date).getTime) {
@@ -802,14 +794,10 @@ bar.selectAll("rect")
 				break; 
 			 }
 		 }*/
-		 while(format(curd).getTime  !== format(rob[i].date).getTime){
-			 i++
-			 console.log(i);
-		 };
-		 console.log(rob[i]);
-	              d3.select("#meteo").append("svg")
-		        .append("image")
-                        .attr("xlink:href", rob[i].links);
+		 while(format(curd).getTime!==format(rob[i].date).getTime){i++};
+	d3.select("#meteo").append("svg")
+		 .append("image")
+                          .attr("xlink:href", rob[i].links);
 	 
 		 
   });
