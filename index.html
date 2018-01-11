@@ -164,7 +164,7 @@ for(k in data){
     fillColor: colorScale(sensor[h+date2][data[k]["Sensor Description"]]),
     strokeOpacity: 0.2,
     strokeColor: "white",
-    strokeWeight: 1.0,
+    strokeWeight: 0,
     scale: 1.5*radius(sensor[h+date2][data[k]["Sensor Description"]])
 };
         marker[k] = new google.maps.Marker({
@@ -202,6 +202,8 @@ for(k in data){
      clearTimeout(bounceTimer);
       });
 
+	
+	essai(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
     bindEvent(sensor,data,marker[k],h,k,sensor[h+date2].Date,data[k]["Sensor Description"])
 
       }
@@ -230,19 +232,14 @@ for(k in data){
     fillColor: colorScale(sensor[h+date2][data[k]["Sensor Description"]]),
     strokeOpacity: 0.2,
     strokeColor: "white",
-    strokeWeight: 1.0,
+    strokeWeight: 0,
     scale: 1.5*radius(sensor[h+date2][data[k]["Sensor Description"]])
 };
         marker[k] = new google.maps.Marker({
           map: map,
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
-          position: latLng,
-	  label:{text: sensor[h+date2][data[k]["Sensor Description"]],
-		 color: "black",
-        fontWeight: "bold",
-        fontSize: "16px"
-      }
+          position: latLng
         });
         marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
@@ -320,10 +317,14 @@ menu.selectAll("option")
 })
 
 
-function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
-    marker.addListener('click', function() {
-	    d3.select("#affluence").select("svg").remove()
-      youhou(sensor,data,h,date,sensor_name)
+function essai (sensor,data,marker,h,k,date,sensor_name) {
+    marker.addListener('mouseover', function() {
+	marker.setLabel({
+        text: sensor[h+date2][data[k]["Sensor Description"]].toString(),
+        color: "black",
+        fontWeight: "bold",
+        fontSize: "11px"
+      })
       //afficherbarchart30 (sensor,data,h,date,sensor_name)
   
     });
