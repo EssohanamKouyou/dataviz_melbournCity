@@ -131,7 +131,7 @@ var radius = d3.scaleSqrt()
     .range([2, 18]);
     
 var colorScale = d3.scaleLinear()
-    .domain([0, 2500])
+    .domain([-0.15, 0.15])
     .range(["#B3E9E2", "#32A192"]);
  
 var marker=[];
@@ -153,11 +153,14 @@ var map = new google.maps.Map(d3.select("#test").node(), {
     
 for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
+  c=0
+  while(h+i*24<sensor.length){c+=sensor[h+i*24][data[k]["Sensor Description"];i++]}
+  moy=c/i
   
   		      var whiteCircle = {
     path: google.maps.SymbolPath.CIRCLE,
     fillOpacity: 0.5,
-    fillColor: colorScale(sensor[h+date2][data[k]["Sensor Description"]]),
+    fillColor: colorScale((sensor[h+date2][data[k]["Sensor Description"]]-moy)/moy),
     strokeOpacity: 0.2,
     strokeColor: "white",
     strokeWeight: 0,
