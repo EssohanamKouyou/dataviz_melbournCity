@@ -486,10 +486,23 @@ donnees=[]
     .data(averages)
     .enter().append("rect")
       .attr("class", "bar")
+	.attr("x", function(d) { return x(d.key); })
+       .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
-		 
 	
+		  svg.selectAll(".bar")
+    .data(averages)
+	.enter().append("rect")
+        .attr("class", "bar")
+  		  .attr("dy", ".75em")
+     .attr("y", 6)
+     .attr("x", x.bandwidth() / 2)
+       .attr("x", function(d) { return x(d.key); })
+       .attr("y", function(d) { return y(d.value); })
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.value; });
+		  
 	  }
 /*  function statjour(sensor,data){
 
@@ -754,13 +767,13 @@ bar.selectAll("rect")
     .attr("height", function(d) { return + height - y(d.value); })
     .style("fill", function(d) { return color(d.name); });
 
-bar.selectAll("rect").data(function(d) { return d.valores; }).enter()
+/*bar.data(function(d) { return d.valores; }).enter()
 	  .append("text")
     .attr("dy", ".75em")
     .attr("y", 6)
     .attr("x", x1.bandwidth() / 2)
     .attr("text-anchor", "middle")
-    .text(function(d) { return d.value; });	  
+    .text(function(d) { return d.value; });	  */
 	  
     
   }
