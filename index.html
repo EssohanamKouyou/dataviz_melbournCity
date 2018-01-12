@@ -466,12 +466,7 @@ donnees=[]
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
-  .selectAll("text")
-  .attr("transform", function(d) {
-                return "rotate(-65)" 
-                })
-  .attr("dx", "-3.2em")
-            .attr("dy", ".7em");
+ 
 	  
 	  svg.append("g")
       .attr("class", "axis axis--y")
