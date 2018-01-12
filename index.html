@@ -166,7 +166,8 @@ for(k in data){
           map: map,
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
-          position: latLng
+          position: latLng,
+		data[k]["Sensor Description"]
         });
          marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
@@ -235,7 +236,8 @@ for(k in data){
           map: map,
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
-          position: latLng
+          position: latLng,
+		text: data[k]["Sensor Description"]
         });
         marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
