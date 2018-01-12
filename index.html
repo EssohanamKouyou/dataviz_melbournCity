@@ -319,6 +319,16 @@ menu.selectAll("option")
 
 function bindEvent (sensor,data,marker,h,k,date,sensor_name) {
     marker.addListener('click', function() {
+	    
+marker.setIcon({
+    path: google.maps.SymbolPath.CIRCLE,
+    fillOpacity: 0.5,
+    fillColor: colorScale(sensor[h+date2][data[k]["Sensor Description"]]),
+    strokeOpacity: 0.2,
+    strokeColor: "white",
+    strokeWeight: 0,
+    scale: 1.5*radius(sensor[h+date2][data[k]["Sensor Description"]])
+})
  	    d3.select("#affluence").select("svg").remove()
       youhou(sensor,data,h,date,sensor_name)
       //afficherbarchart30 (sensor,data,h,date,sensor_name)
