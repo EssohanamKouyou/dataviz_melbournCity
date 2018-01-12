@@ -492,7 +492,7 @@ donnees=[]
 svg.selectAll(".bar")
     .data(averages)
     .enter().append("text")
-     // .attr("class", "bar")
+      .attr("class", "bar")
 		  .attr("dy", ".75em")
       .attr("x", function(d) { return x(d.key); })
       .attr("y", function(d) { return y(d.value); })
