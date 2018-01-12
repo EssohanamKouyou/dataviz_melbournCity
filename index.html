@@ -238,7 +238,7 @@ for(k in data){
           icon: whiteCircle,
           //animation: google.maps.Animation.DROP,
           position: latLng,
-		title: data[k]["Sensor Description"]
+		title: data[k]["Sensor Description"]+" : "+sensor[h+date2][data[k]["Sensor Description"]]+" personnes comptées"
         });
         marker[k].addListener('mouseover', function() {
         if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
