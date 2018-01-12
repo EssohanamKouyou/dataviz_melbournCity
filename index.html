@@ -759,7 +759,7 @@ bar.selectAll("rect")
     .style("fill", function(d) { return color(d.name); });
 
 bar.append("text")
-    .data(function(d) { return d.valores; })
+    .data(function(d) { return d.valores; }).enter()
     .attr("dy", ".75em")
     .attr("y", 6)
     .attr("x", x1.bandwidth() / 2)
@@ -774,7 +774,7 @@ bar.append("text")
       .attr("text-anchor", "end")
 
   legend.append("rect")
-	.data(function(d) { return d.valores; })
+	.data(function(d) { return d.valores; }).enter()
       .attr("x", width - 19)
       .attr("width", 19)
       .attr("height", 19)
