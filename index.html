@@ -158,7 +158,6 @@ for(k in data){
   while(h+i*24*7<sensor.length){if(sensor[h+i*24*7][data[k]["Sensor Description"]]!=undefined){c=c+sensor[h+i*24*7][data[k]["Sensor Description"]]; i++}}
   moy=c/i;
 	console.log(i)
-	console.log(typeof(sensor[h+i*24*7][data[k]["Sensor Description"]]))
 	console.log(moy)
   	console.log((sensor[h+date2][data[k]["Sensor Description"]]-moy)/moy)
   		      var whiteCircle = {
