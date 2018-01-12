@@ -486,8 +486,6 @@ donnees=[]
     .data(averages)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.key); })
-      .attr("y", function(d) { return y(d.value); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
 		  
@@ -496,8 +494,8 @@ svg.selectAll(".bar")
     .enter().append("rect")
       .attr("class", "bar")
 		  .attr("dy", ".75em")
-    .attr("y", 6)
-    .attr("x", x.bandwidth() / 2)
+      .attr("x", function(d) { return x(d.key); })
+      .attr("y", function(d) { return y(d.value); })
     .attr("text-anchor", "middle")
     .text(function(d) { return d.value; });
 	  
