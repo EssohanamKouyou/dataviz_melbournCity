@@ -488,18 +488,7 @@ donnees=[]
       .attr("class", "bar")
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.value); });
-		  
-svg.selectAll(".bar")
-    .data(averages)
-    .enter().append("text")
-      .attr("class", "bar")
-		  .attr("dy", ".75em")
-      .attr("x", function(d) { return x(d.key); })
-      .attr("y", function(d) { return y(d.value); })
-    .attr("text-anchor", "middle")
-    .text(function(d) { return d.value; });
-	  
-  }
+		 
 	
   
 /*  function statjour(sensor,data){
