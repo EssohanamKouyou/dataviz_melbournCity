@@ -501,6 +501,7 @@ donnees=[]
        .attr("x", function(d) { return x(d.key); })
        .attr("y", function(d) { return y(d.value); })
       .attr("text-anchor", "middle")
+		  .attr("fill","white")
       .text(function(d) { return d.value; });
 		  
 	  }
@@ -767,13 +768,14 @@ bar.selectAll("rect")
     .attr("height", function(d) { return + height - y(d.value); })
     .style("fill", function(d) { return color(d.name); });
 
-/*bar.data(function(d) { return d.valores; }).enter()
+bar.data(function(d) { return d.valores; })
+.enter()
 	  .append("text")
     .attr("dy", ".75em")
     .attr("y", 6)
     .attr("x", x1.bandwidth() / 2)
     .attr("text-anchor", "middle")
-    .text(function(d) { return d.value; });	  */
+    .text(function(d) { return d.value; });	  
 	  
     
   }
