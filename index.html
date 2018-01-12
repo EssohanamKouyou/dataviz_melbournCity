@@ -154,8 +154,8 @@ var map = new google.maps.Map(d3.select("#test").node(), {
 for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
   c=0
-  while(h+i*24<sensor.length){c+=sensor[h+i*24][data[k]["Sensor Description"];i++]}
-  moy=c/i
+  while(h+i*24<sensor.length){c+=sensor[h+i*24][data[k]["Sensor Description"]]; i++]}
+  moy=c/i;
   
   		      var whiteCircle = {
     path: google.maps.SymbolPath.CIRCLE,
