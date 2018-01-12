@@ -155,9 +155,10 @@ for(k in data){
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
   i=0
   c=0
-  while(h+i*24<sensor.length){c=c++sensor[h+i*24*7][data[k]["Sensor Description"]]; i++}
+  while(h+i*24*7<sensor.length){c=c+sensor[h+i*24*7][data[k]["Sensor Description"]]; i++}
   moy=c/i;
 	console.log(i)
+	console.log(typeof(sensor[h+i*24*7][data[k]["Sensor Description"]]))
 	console.log(moy)
   	console.log((sensor[h+date2][data[k]["Sensor Description"]]-moy)/moy)
   		      var whiteCircle = {
