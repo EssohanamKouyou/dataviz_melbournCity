@@ -229,11 +229,17 @@ d3.csv("November_2017.csv", function(sensor) {
 for(k in data){
   marker[k].setMap(null)
   var latLng = new google.maps.LatLng(data[k].Latitude,data[k].Longitude)
-  
+  i=0
+  c=0
+  while(h+i*24*7<sensor.length){if(+sensor[h+i*24*7][data[k]["Sensor Description"]]!=undefined){f=+sensor[h+i*24*7][data[k]["Sensor Description"]]; c+=f; i++}}
+  moy=c/i;
+	console.log(i)
+	console.log(moy)
+  	console.log((sensor[h+date2][data[k]["Sensor Description"]]-moy)/moy)
   		      var whiteCircle = {
     path: google.maps.SymbolPath.CIRCLE,
     fillOpacity: 0.5,
-    fillColor: colorScale(sensor[h+date2][data[k]["Sensor Description"]]),
+    fillColor: colorScale((sensor[h+date2][data[k]["Sensor Description"]]-moy)/moy),
     strokeOpacity: 0.2,
     strokeColor: "white",
     strokeWeight: 0,
